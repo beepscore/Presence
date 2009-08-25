@@ -63,6 +63,7 @@
 							<string key="IBUITitle">Root View Controller</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="237099624"/>
+						<string key="IBUINibName">PersonListView</string>
 					</object>
 				</object>
 			</object>
@@ -183,7 +184,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>{{318, 365}, {320, 480}}</string>
+					<string>{{738, 368}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>PersonListViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

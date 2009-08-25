@@ -21,6 +21,7 @@
 		DE4BCDEE104373CF0009C6DE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE9104373CF0009C6DE /* NSObject+SBJSON.m */; };
 		DE4BCDEF104373CF0009C6DE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDEB104373CF0009C6DE /* NSString+SBJSON.m */; };
 		DE4BCDF0104373CF0009C6DE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDED104373CF0009C6DE /* SBJSON.m */; };
+		DE9C4F1B104450D700714304 /* PersonListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9C4F1A104450D700714304 /* PersonListView.xib */; };
 		DEADA460104386130089FE7D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADA45F104386130089FE7D /* Person.m */; };
 		DEAF899510438C0800521C55 /* beepscoreIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAF899410438C0800521C55 /* beepscoreIcon57.png */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		DE4BCDEB104373CF0009C6DE /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
 		DE4BCDEC104373CF0009C6DE /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		DE4BCDED104373CF0009C6DE /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		DE9C4F1A104450D700714304 /* PersonListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonListView.xib; sourceTree = "<group>"; };
 		DEADA45E104386130089FE7D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		DEADA45F104386130089FE7D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		DEAF899410438C0800521C55 /* beepscoreIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beepscoreIcon57.png; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Presence-Info.plist */,
 				DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */,
+				DE9C4F1A104450D700714304 /* PersonListView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */,
 				DEAF899510438C0800521C55 /* beepscoreIcon57.png in Resources */,
 				DE0C60DD1043B61E00FB5062 /* PersonDetailView.xib in Resources */,
+				DE9C4F1B104450D700714304 /* PersonListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
