@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0361C31043A2E000FD0218 /* PersonListViewController.m */; };
 		DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE4BCDE1104373870009C6DE /* TwitterUsers.plist */; };
 		DE4BCDE51043739D0009C6DE /* TwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE41043739D0009C6DE /* TwitterHelper.m */; };
 		DE4BCDEE104373CF0009C6DE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE9104373CF0009C6DE /* NSObject+SBJSON.m */; };
@@ -33,6 +34,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Presence_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Presence_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Presence-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Presence-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		DE0361C21043A2E000FD0218 /* PersonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonListViewController.h; sourceTree = "<group>"; };
+		DE0361C31043A2E000FD0218 /* PersonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonListViewController.m; sourceTree = "<group>"; };
 		DE4BCDE1104373870009C6DE /* TwitterUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterUsers.plist; sourceTree = "<group>"; };
 		DE4BCDE31043739D0009C6DE /* TwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHelper.h; sourceTree = "<group>"; };
 		DE4BCDE41043739D0009C6DE /* TwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHelper.m; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				1D3623250D0F684500981E51 /* PresenceAppDelegate.m */,
 				DEADA45E104386130089FE7D /* Person.h */,
 				DEADA45F104386130089FE7D /* Person.m */,
+				DE0361C21043A2E000FD0218 /* PersonListViewController.h */,
+				DE0361C31043A2E000FD0218 /* PersonListViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				DE4BCDEF104373CF0009C6DE /* NSString+SBJSON.m in Sources */,
 				DE4BCDF0104373CF0009C6DE /* SBJSON.m in Sources */,
 				DEADA460104386130089FE7D /* Person.m in Sources */,
+				DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
