@@ -1,17 +1,16 @@
 //
-//  PersonListViewController.m
+//  PersonDetailViewController.m
 //  Presence
 //
 //  Created by Steve Baker on 8/24/09.
 //  Copyright 2009 Beepscore LLC. All rights reserved.
 //
 
-#import "PersonListViewController.h"
-#import "Person.h"
+#import "PersonDetailViewController.h"
 
-@implementation PersonListViewController
-@synthesize people;
 
+@implementation PersonDetailViewController
+@synthesize person;
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -21,22 +20,13 @@
 }
 */
 
-// Ref Mark pg 258, 266
-- (void)viewDidLoad {
-    // title displays in navigation controller bar.
-    self.title = @"People";
-    NSMutableArray *tempPeople = [[NSMutableArray alloc] init];
-    
-    Person *person = [[Person alloc] initWithHardcodedValues];
-    [tempPeople addObject:person];
-    [person release];
 
-    Person *person2 = [[Person alloc] initWithHardcodedValues];
-    [tempPeople addObject:person2];
-    [person2 release];
+- (void)viewDidLoad {
+    // Ref Mark pg 269
+    Person *tempPerson = [[Person alloc] init];
+    self.person = tempPerson;
+    [tempPerson release];
     
-    self.people = tempPeople;
-    [tempPeople release];
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -83,18 +73,12 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    self.people = nil;
+    self.person = nil;
     [super viewDidUnload];
 }
 
 
-- (void)dealloc {
-    [people release];
-    [super dealloc];
-}
-
-#pragma mark -
-#pragma mark Table View methods
+#pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -103,8 +87,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Ref Mark pg 258
-    return [self.people count];
+    return 0;
 }
 
 
@@ -114,19 +97,12 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (nil == cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:CellIdentifier] autorelease];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Set up the cell.  Ref Mark pg 258
-	NSUInteger row = [indexPath row];
-    Person *person = [people objectAtIndex:row];
-    cell.textLabel.text = person.twitterUserName;
-    cell.imageView.image = person.personImage;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    // Set up the cell...
+	
     return cell;
 }
 
@@ -177,6 +153,12 @@
     return YES;
 }
 */
+
+
+- (void)dealloc {
+    [person release];
+    [super dealloc];
+}
 
 
 @end

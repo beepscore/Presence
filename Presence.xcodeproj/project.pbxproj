@@ -14,6 +14,8 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0361C31043A2E000FD0218 /* PersonListViewController.m */; };
+		DE0C60D91043B2F100FB5062 /* PersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */; };
+		DE0C60DD1043B61E00FB5062 /* PersonDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */; };
 		DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE4BCDE1104373870009C6DE /* TwitterUsers.plist */; };
 		DE4BCDE51043739D0009C6DE /* TwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE41043739D0009C6DE /* TwitterHelper.m */; };
 		DE4BCDEE104373CF0009C6DE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE9104373CF0009C6DE /* NSObject+SBJSON.m */; };
@@ -36,6 +38,9 @@
 		8D1107310486CEB800E47090 /* Presence-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Presence-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		DE0361C21043A2E000FD0218 /* PersonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonListViewController.h; sourceTree = "<group>"; };
 		DE0361C31043A2E000FD0218 /* PersonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonListViewController.m; sourceTree = "<group>"; };
+		DE0C60D71043B2F100FB5062 /* PersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailViewController.h; sourceTree = "<group>"; };
+		DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailViewController.m; sourceTree = "<group>"; };
+		DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailView.xib; sourceTree = "<group>"; };
 		DE4BCDE1104373870009C6DE /* TwitterUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterUsers.plist; sourceTree = "<group>"; };
 		DE4BCDE31043739D0009C6DE /* TwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHelper.h; sourceTree = "<group>"; };
 		DE4BCDE41043739D0009C6DE /* TwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHelper.m; sourceTree = "<group>"; };
@@ -77,6 +82,8 @@
 				DEADA45F104386130089FE7D /* Person.m */,
 				DE0361C21043A2E000FD0218 /* PersonListViewController.h */,
 				DE0361C31043A2E000FD0218 /* PersonListViewController.m */,
+				DE0C60D71043B2F100FB5062 /* PersonDetailViewController.h */,
+				DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -117,6 +124,7 @@
 				DE4BCDE1104373870009C6DE /* TwitterUsers.plist */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Presence-Info.plist */,
+				DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */,
 				DEAF899510438C0800521C55 /* beepscoreIcon57.png in Resources */,
+				DE0C60DD1043B61E00FB5062 /* PersonDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +217,7 @@
 				DE4BCDF0104373CF0009C6DE /* SBJSON.m in Sources */,
 				DEADA460104386130089FE7D /* Person.m in Sources */,
 				DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */,
+				DE0C60D91043B2F100FB5062 /* PersonDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
