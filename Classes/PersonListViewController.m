@@ -7,9 +7,10 @@
 //
 
 #import "PersonListViewController.h"
-
+#import "Person.h"
 
 @implementation PersonListViewController
+@synthesize people;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -20,14 +21,19 @@
 }
 */
 
-/*
+// Ref Mark pg 258
 - (void)viewDidLoad {
+    // title displays in navigation controller bar.
+    self.title = @"People";
+    NSMutableArray *tempPeople = [[NSMutableArray alloc] init];
+    self.people = tempPeople;
+    [tempPeople release];
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,10 +74,18 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+    self.people = nil;
+    [super viewDidUnload];
 }
 
 
-#pragma mark Table view methods
+- (void)dealloc {
+    [people release];
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Table View methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -146,11 +160,6 @@
     return YES;
 }
 */
-
-
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

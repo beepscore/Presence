@@ -10,7 +10,8 @@
 
 
 @interface PersonListViewController : UITableViewController {
-
+    // people array will hold instances of Person.  Ref Mark pg 257
+    NSArray *people;
 }
-
+@property (nonatomic, retain) NSArray *people;
 @end
