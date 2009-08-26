@@ -10,7 +10,7 @@
 #import "Person.h"
 
 @implementation PersonListViewController
-@synthesize people;
+@synthesize names;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -25,18 +25,14 @@
 - (void)viewDidLoad {
     // title displays in navigation controller bar.
     self.title = @"People";
-    NSMutableArray *tempPeople = [[NSMutableArray alloc] init];
     
-    Person *person = [[Person alloc] initWithHardcodedValues];
-    [tempPeople addObject:person];
-    [person release];
+    // Ref Mark pg 223, 327
+    // Note TwitterUsers.plist root is an array, not a dictionary
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];    
+    NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
+    self.names = tempNamesArray;
+    [tempNamesArray release];
 
-    Person *person2 = [[Person alloc] initWithHardcodedValues];
-    [tempPeople addObject:person2];
-    [person2 release];
-    
-    self.people = tempPeople;
-    [tempPeople release];
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -83,13 +79,13 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    self.people = nil;
+    self.names = nil;
     [super viewDidUnload];
 }
 
 
 - (void)dealloc {
-    [people release];
+    [names release];
     [super dealloc];
 }
 
@@ -104,7 +100,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Ref Mark pg 258
-    return [self.people count];
+    return [self.names count];
 }
 
 
@@ -122,9 +118,9 @@
     
     // Set up the cell.  Ref Mark pg 258
 	NSUInteger row = [indexPath row];
-    Person *person = [people objectAtIndex:row];
-    cell.textLabel.text = person.twitterUserName;
-    cell.imageView.image = person.personImage;
+    
+    cell.textLabel.text = [names objectAtIndex:row];
+    //cell.imageView.image = person.personImage;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
