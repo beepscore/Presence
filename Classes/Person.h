@@ -11,8 +11,7 @@
 
 @interface Person : NSObject {
     NSString *twitterUserName;
-    NSString *personImageURLString;
-    NSURL *personImageURL;
+    NSURL *profileImageNSURL;
     NSString *displayName;
     NSString *timeZone;
     NSArray *statusUpdates;
@@ -21,8 +20,7 @@
 @property (nonatomic, retain) NSString *twitterUserName;
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSString *timeZone;
-@property (nonatomic, retain) NSString *personImageURLString;
-@property (nonatomic, retain) NSURL *personImageURL;
+@property (nonatomic, retain) NSURL *profileImageNSURL;
 @property (nonatomic, retain) NSArray *statusUpdates;
 
 - (id)initForUserName:(NSString *)userName;

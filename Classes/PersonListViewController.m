@@ -124,7 +124,7 @@
     Person *person = [[Person alloc] initForUserName:(NSString *)[names objectAtIndex:row]];
     cell.textLabel.text = person.displayName;
 
-    NSData *imageData = [NSData dataWithContentsOfURL:person.personImageURL];
+    NSData *imageData = [NSData dataWithContentsOfURL:person.profileImageNSURL];
     UIImage *img = [[UIImage alloc] initWithData:imageData];	
     cell.imageView.image = img;
     
