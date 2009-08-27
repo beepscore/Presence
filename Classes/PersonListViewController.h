@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface PersonListViewController : UITableViewController {
     // names array holds a list of peoples names.  Ref Mark pg 223, 257
     NSArray *names;

@@ -28,10 +28,12 @@
     
     // Ref Mark pg 223, 327
     // Note TwitterUsers.plist root is an array, not a dictionary
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];    
-    NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
-    self.names = tempNamesArray;
-    [tempNamesArray release];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];
+    
+    // NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
+    // self.names = tempNamesArray;
+    // [tempNamesArray release];
+    self.names = [[NSArray alloc] initWithContentsOfFile:plistPath];    
 
     [super viewDidLoad];
 
@@ -100,7 +102,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Ref Mark pg 258
-    return [self.names count];
+    return [names count];
 }
 
 
@@ -119,10 +121,17 @@
     // Set up the cell.  Ref Mark pg 258
 	NSUInteger row = [indexPath row];
     
-    cell.textLabel.text = [names objectAtIndex:row];
-    //cell.imageView.image = person.personImage;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    Person *person = [[Person alloc] initForUserName:(NSString *)[names objectAtIndex:row]];
+    cell.textLabel.text = person.displayName;
+
+    NSData *imageData = [NSData dataWithContentsOfURL:person.personImageURL];
+    UIImage *img = [[UIImage alloc] initWithData:imageData];	
+    cell.imageView.image = img;
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [person release];
+    [img release];
+
     return cell;
 }
 

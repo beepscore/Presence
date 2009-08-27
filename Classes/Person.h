@@ -7,20 +7,23 @@
 //  Person class instantiates Model objects.
 
 #import <Foundation/Foundation.h>
+#import "TwitterHelper.h"
 
 @interface Person : NSObject {
-    // TODO: Use image URL instead?
-    UIImage *personImage;
     NSString *twitterUserName;
-    // Note: Some users may not have a display name.
+    NSString *personImageURLString;
+    NSURL *personImageURL;
     NSString *displayName;
+    NSString *timeZone;
     NSArray *statusUpdates;
 }
 
-@property (nonatomic, retain) UIImage *personImage;
 @property (nonatomic, retain) NSString *twitterUserName;
 @property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, retain) NSString *timeZone;
+@property (nonatomic, retain) NSString *personImageURLString;
+@property (nonatomic, retain) NSURL *personImageURL;
 @property (nonatomic, retain) NSArray *statusUpdates;
 
-- (id)initWithHardcodedValues;
+- (id)initForUserName:(NSString *)userName;
 @end
