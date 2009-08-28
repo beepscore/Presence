@@ -10,7 +10,7 @@
 
 @implementation PersonListViewController
 @synthesize names;
-//@synthesize navController;
+@synthesize navController;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -90,7 +90,8 @@
 
 - (void)dealloc {
     [names release];
-    //[navController release];
+    [navController release];
+
     [super dealloc];
 }
 
@@ -148,12 +149,11 @@
     // TODO: fix these
 	//NSUInteger row = [indexPath row];
     //Person *person = [[Person alloc] initForUserName:(NSString *)[names objectAtIndex:row]];
-    //PersonDetailViewController *personDetailViewController = 
-    //    [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
-    //[self.navController pushViewController:personDetailViewController animated:YES];
-	//[personDetailViewController release];
+    PersonDetailViewController *personDetailViewController = 
+        [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
+    [navController pushViewController:personDetailViewController animated:YES];
 
-    
+    //[personDetailViewController release];
 }
 
 
