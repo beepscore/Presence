@@ -26,13 +26,13 @@
         // Use convenience factory method, rely on autorelease instead of explicit release
         NSDictionary *userDictionary = [TwitterHelper fetchInfoForUsername:userName];
         // Display best name available
-        if (nil == [userDictionary valueForKey:@"screen_name"]) {
+        if (nil == [userDictionary objectForKey:@"screen_name"]) {
             self.displayName = userName;
         }
         else {
-            self.displayName = [userDictionary valueForKey:@"screen_name"];
+            self.displayName = [userDictionary objectForKey:@"screen_name"];
         }
-        self.timeZone = [userDictionary valueForKey:@"time_zone"];
+        self.timeZone = [userDictionary objectForKey:@"time_zone"];
         
         // Ref Hillegass pg 350
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];

@@ -30,10 +30,9 @@
     // Note TwitterUsers.plist root is an array, not a dictionary
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];
     
-    // NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
-    // self.names = tempNamesArray;
-    // [tempNamesArray release];
-    self.names = [[NSArray alloc] initWithContentsOfFile:plistPath];    
+    NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
+    self.names = tempNamesArray;
+    [tempNamesArray release];
 
     [super viewDidLoad];
 
