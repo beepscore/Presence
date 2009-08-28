@@ -7,10 +7,10 @@
 //
 
 #import "PersonListViewController.h"
-#import "Person.h"
 
 @implementation PersonListViewController
 @synthesize names;
+//@synthesize navController;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -30,6 +30,9 @@
     // Note TwitterUsers.plist root is an array, not a dictionary
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];
     
+    // Use temp variable and explicit release.
+    // Using a convenience factory method would be more concise, but would rely on autorelease.
+    // Ref Mark pg 43, 184    
     NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
     self.names = tempNamesArray;
     [tempNamesArray release];
@@ -87,6 +90,7 @@
 
 - (void)dealloc {
     [names release];
+    //[navController release];
     [super dealloc];
 }
 
@@ -120,7 +124,7 @@
     // Set up the cell.  Ref Mark pg 258
 	NSUInteger row = [indexPath row];
     
-    Person *person = [[Person alloc] initForUserName:(NSString *)[names objectAtIndex:row]];
+    Person *person = [[Person alloc] initForUserName:(NSString *)[self.names objectAtIndex:row]];
     cell.textLabel.text = person.displayName;
 
     NSData *imageData = [NSData dataWithContentsOfURL:person.profileImageNSURL];
@@ -128,7 +132,7 @@
     cell.imageView.image = img;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    [person release];
+    //[person release];
     [img release];
 
     return cell;
@@ -138,8 +142,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+    //PersonDetailViewController *personDetailViewController = [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
+
+    // ==================
+    // TODO: fix these
+	//NSUInteger row = [indexPath row];
+    //Person *person = [[Person alloc] initForUserName:(NSString *)[names objectAtIndex:row]];
+    //PersonDetailViewController *personDetailViewController = 
+    //    [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
+    //[self.navController pushViewController:personDetailViewController animated:YES];
+	//[personDetailViewController release];
+
+    
 }
 
 

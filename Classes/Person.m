@@ -21,38 +21,36 @@
     // allow superclass to initialize its state first
     self = [super init];    
     if (self) {
-        self.twitterUserName = userName;
+        twitterUserName = userName;
 
         // Use convenience factory method, rely on autorelease.  Don't explicitly release.
         // http://apiwiki.twitter.com/Twitter-REST-API-Method:-users%C2%A0show
         NSDictionary *userDictionary = [TwitterHelper fetchInfoForUsername:userName];
         // Display the best available name
         if (nil != [userDictionary objectForKey:@"name"]) {
-            self.displayName = [userDictionary objectForKey:@"name"];
+            displayName = [userDictionary objectForKey:@"name"];
         }
         else if (nil != [userDictionary objectForKey:@"screen_name"]) {
-            self.displayName = [userDictionary objectForKey:@"screen_name"];
+            displayName = [userDictionary objectForKey:@"screen_name"];
         }
         else {
-            self.displayName = userName;
+            displayName = userName;
         }
-        self.timeZone = [userDictionary objectForKey:@"time_zone"];
+        timeZone = [userDictionary objectForKey:@"time_zone"];
         
         // Ref Hillegass pg 350
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];
-        self.profileImageNSURL = [NSURL URLWithString:profileImageURL];
+        profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
-        // Use temp variable and explicit release.
-        // Using a convenience factory method would be more concise, but would rely on autorelease.
-        // Ref Mark pg 43, 184        
-        NSArray *tempStatusUpdates = [[NSArray alloc]
-                                      initWithObjects:@"first status update", @"second status update", nil];
-        self.statusUpdates = tempStatusUpdates;
-        [tempStatusUpdates release];
-        
+        // TODO:  These lines break the app???
+        //NSArray *tempStatusUpdates = [TwitterHelper fetchTimelineForUsername:userName];        
+        //statusUpdates = tempStatusUpdates;
+        //[tempStatusUpdates release];
+
     }
     return self;
 }
+
 
 
 - (void)dealloc {

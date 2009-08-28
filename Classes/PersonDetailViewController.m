@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     // Ref Mark pg 269
+    self.title = @"Personal Details";
     Person *tempPerson = [[Person alloc] init];
     self.person = tempPerson;
     [tempPerson release];
