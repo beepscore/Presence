@@ -11,17 +11,17 @@
 
 @interface Person : NSObject {
     NSString *twitterUserName;
-    NSURL *profileImageNSURL;
     NSString *displayName;
-    NSString *timeZone;
+    NSURL *profileImageNSURL;
     NSArray *statusUpdates;
+    NSString *timeZone;
 }
 
 @property (nonatomic, retain) NSString *twitterUserName;
 @property (nonatomic, retain) NSString *displayName;
-@property (nonatomic, retain) NSString *timeZone;
 @property (nonatomic, retain) NSURL *profileImageNSURL;
 @property (nonatomic, retain) NSArray *statusUpdates;
+@property (nonatomic, retain) NSString *timeZone;
 
 - (id)initForUserName:(NSString *)userName;
 @end

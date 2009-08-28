@@ -11,10 +11,10 @@
 @implementation Person
 
 @synthesize twitterUserName;
-@synthesize timeZone;
-@synthesize profileImageNSURL;
 @synthesize displayName;
+@synthesize profileImageNSURL;
 @synthesize statusUpdates;
+@synthesize timeZone;
 
 
 - (id)initForUserName:(NSString *)userName {
@@ -23,14 +23,18 @@
     if (self) {
         self.twitterUserName = userName;
 
-        // Use convenience factory method, rely on autorelease instead of explicit release
+        // Use convenience factory method, rely on autorelease.  Don't explicitly release.
+        // http://apiwiki.twitter.com/Twitter-REST-API-Method:-users%C2%A0show
         NSDictionary *userDictionary = [TwitterHelper fetchInfoForUsername:userName];
-        // Display best name available
-        if (nil == [userDictionary objectForKey:@"screen_name"]) {
-            self.displayName = userName;
+        // Display the best available name
+        if (nil != [userDictionary objectForKey:@"name"]) {
+            self.displayName = [userDictionary objectForKey:@"name"];
+        }
+        else if (nil != [userDictionary objectForKey:@"screen_name"]) {
+            self.displayName = [userDictionary objectForKey:@"screen_name"];
         }
         else {
-            self.displayName = [userDictionary objectForKey:@"screen_name"];
+            self.displayName = userName;
         }
         self.timeZone = [userDictionary objectForKey:@"time_zone"];
         
@@ -45,15 +49,18 @@
                                       initWithObjects:@"first status update", @"second status update", nil];
         self.statusUpdates = tempStatusUpdates;
         [tempStatusUpdates release];
+        
     }
     return self;
 }
 
 
 - (void)dealloc {
-    [profileImageNSURL release];
     [twitterUserName release];
     [displayName release];
+    [profileImageNSURL release];
+    [statusUpdates release];
+    [timeZone release];
     [super dealloc];
 }
 @end
