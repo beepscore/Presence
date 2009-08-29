@@ -9,7 +9,7 @@
 #import "PersonListViewController.h"
 
 @implementation PersonListViewController
-@synthesize names;
+@synthesize people;
 @synthesize navController;
 
 /*
@@ -33,9 +33,9 @@
     // Use temp variable and explicit release.
     // Using a convenience factory method would be more concise, but would rely on autorelease.
     // Ref Mark pg 43, 184    
-    NSArray *tempNamesArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
-    self.names = tempNamesArray;
-    [tempNamesArray release];
+    NSArray *tempPeopleArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
+    self.people = tempPeopleArray;
+    [tempPeopleArray release];
 
     [super viewDidLoad];
 
@@ -83,13 +83,13 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    self.names = nil;
+    self.people = nil;
     [super viewDidUnload];
 }
 
 
 - (void)dealloc {
-    [names release];
+    [people release];
     [navController release];
 
     [super dealloc];
@@ -106,7 +106,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Ref Mark pg 258
-    return [names count];
+    return [people count];
 }
 
 
@@ -125,7 +125,7 @@
     // Set up the cell.  Ref Mark pg 258
 	NSUInteger row = [indexPath row];
     
-    Person *person = [[Person alloc] initForUserName:(NSString *)[self.names objectAtIndex:row]];
+    Person *person = [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
     cell.textLabel.text = person.displayName;
 
     NSData *imageData = [NSData dataWithContentsOfURL:person.profileImageNSURL];
@@ -133,6 +133,7 @@
     cell.imageView.image = img;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    // person will need to be released, but can't do it here it breaks app.
     //[person release];
     [img release];
 
