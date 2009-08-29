@@ -24,7 +24,8 @@
 - (void)viewDidLoad {
     // Ref Mark pg 269
     self.title = @"Personal Details";
-    Person *tempPerson = [[Person alloc] init];
+    //Person *tempPerson = [[Person alloc] init];
+    Person *tempPerson = [[Person alloc] initForUserName:@"THE_REAL_SHAQ"];
     self.person = tempPerson;
     [tempPerson release];
     
@@ -88,7 +89,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 2;
 }
 
 
@@ -102,8 +103,11 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Set up the cell...
-	
+    // Set up the cell.  Ref Mark pg 258    
+    cell.textLabel.text = @"I feel good.";
+    //cell.textLabel.text = person.displayName;
+    //cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:0];
+            
     return cell;
 }
 

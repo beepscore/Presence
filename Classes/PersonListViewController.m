@@ -123,8 +123,7 @@
     }
     
     // Set up the cell.  Ref Mark pg 258
-	NSUInteger row = [indexPath row];
-    
+	NSUInteger row = [indexPath row];    
     Person *person = [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
     cell.textLabel.text = person.displayName;
 
@@ -143,17 +142,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-    //PersonDetailViewController *personDetailViewController = [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
-
-    // ==================
     // TODO: fix these
-	//NSUInteger row = [indexPath row];
-    //Person *person = [[Person alloc] initForUserName:(NSString *)[names objectAtIndex:row]];
     PersonDetailViewController *personDetailViewController = 
         [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
-    [navController pushViewController:personDetailViewController animated:YES];
 
+	//NSUInteger row = [indexPath row];
+    //Person *person = [[Person alloc] initForUserName:(NSString *)[people objectAtIndex:row]];
+    
+    [navController pushViewController:personDetailViewController animated:YES];
+    
+    // TODO: don't need to release, navigation controller will pop it?
     //[personDetailViewController release];
 }
 

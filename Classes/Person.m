@@ -43,8 +43,8 @@
         profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
         // TODO:  These lines break the app???
-        //NSArray *tempStatusUpdates = [TwitterHelper fetchTimelineForUsername:userName];        
-        //statusUpdates = tempStatusUpdates;
+        NSArray *tempStatusUpdates = [TwitterHelper fetchTimelineForUsername:userName];        
+        statusUpdates = tempStatusUpdates;
         //[tempStatusUpdates release];
 
     }
