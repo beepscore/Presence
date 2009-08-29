@@ -42,9 +42,11 @@
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];
         profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
-        // TODO:  These lines break the app???
+        // TODO:  Check array element type.  NSCFDictionary, not NSString???
         NSArray *tempStatusUpdates = [TwitterHelper fetchTimelineForUsername:userName];        
         statusUpdates = tempStatusUpdates;
+        
+        // TODO:  This breaks app??
         //[tempStatusUpdates release];
 
     }

@@ -26,6 +26,7 @@
     self.title = @"Personal Details";
     //Person *tempPerson = [[Person alloc] init];
     Person *tempPerson = [[Person alloc] initForUserName:@"THE_REAL_SHAQ"];
+    //Person *tempPerson = [[Person alloc] initForUserName:@"WilliamShatner"];
     self.person = tempPerson;
     [tempPerson release];
     
@@ -89,6 +90,8 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // TODO: Check count?
+    //return [person.statusUpdates count];
     return 2;
 }
 
@@ -107,6 +110,7 @@
     cell.textLabel.text = @"I feel good.";
     //cell.textLabel.text = person.displayName;
     //cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:0];
+    //cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:1];
             
     return cell;
 }
