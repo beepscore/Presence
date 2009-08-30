@@ -13,7 +13,6 @@
 @synthesize twitterUserName;
 @synthesize displayName;
 @synthesize profileImageNSURL;
-@synthesize statusUpdates;
 @synthesize timeZone;
 
 
@@ -42,15 +41,16 @@
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];
         profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
-        // TODO:  Check array element type.  NSCFDictionary, not NSString???
-        NSArray *tempStatusUpdates = [TwitterHelper fetchTimelineForUsername:userName];        
-        statusUpdates = tempStatusUpdates;
-        
-        // TODO:  This breaks app??
-        //[tempStatusUpdates release];
+        statusUpdates = nil;
 
     }
     return self;
+}
+
+// Get statusUpdates, but don't store in person.
+-(NSArray *)statusUpdates {
+        // TODO:  Check array element type.  NSCFDictionary, not NSString???
+        return [TwitterHelper fetchTimelineForUsername:self.twitterUserName];        
 }
 
 

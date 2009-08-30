@@ -88,7 +88,6 @@
     [super viewDidUnload];
 }
 
-
 - (void)dealloc {
     [people release];
     //[navController release];
@@ -126,6 +125,7 @@
     // Set up the cell.  Ref Mark pg 258
 	NSUInteger row = [indexPath row];    
     Person *person = [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
+    
     cell.textLabel.text = person.displayName;
 
     NSData *imageData = [NSData dataWithContentsOfURL:person.profileImageNSURL];
@@ -133,7 +133,8 @@
     cell.imageView.image = img;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // person will need to be released, but can't do it here it breaks app.
+    // TODO:  person will need to be released, but can't do it here it breaks app.
+    // is this related to shallow copies.  Do we need to retain something else before release person?
     //[person release];
     [img release];
 
@@ -163,7 +164,6 @@
     //[personDetailViewController release];
 }
 
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -171,7 +171,6 @@
     return YES;
 }
 */
-
 
 /*
 // Override to support editing the table view.
@@ -187,13 +186,11 @@
 }
 */
 
-
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
 }
 */
-
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -202,7 +199,6 @@
     return YES;
 }
 */
-
 
 @end
 

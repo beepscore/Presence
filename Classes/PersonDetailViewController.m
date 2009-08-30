@@ -24,8 +24,7 @@
 - (void)viewDidLoad {
     // Ref Mark pg 269
     //self.title = @"Personal Details";
-    self.title = person.displayName;
-    
+    self.title = person.displayName;    
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
