@@ -14,8 +14,10 @@
     // people array holds a list of peoples names.  Ref Mark pg 223, 257
     NSArray *people;
     UINavigationController *navController;
+    // UINavigationController *myNavController;
 }
 @property (nonatomic, retain) NSArray *people;
 @property (nonatomic, retain) IBOutlet UINavigationController *navController;
+// @property (nonatomic, retain) IBOutlet UINavigationController *myNavController;
 
 @end

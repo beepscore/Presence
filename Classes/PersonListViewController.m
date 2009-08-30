@@ -11,6 +11,7 @@
 @implementation PersonListViewController
 @synthesize people;
 @synthesize navController;
+//@synthesize myNavController;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -90,7 +91,7 @@
 
 - (void)dealloc {
     [people release];
-    [navController release];
+    //[navController release];
 
     [super dealloc];
 }
@@ -146,9 +147,15 @@
     PersonDetailViewController *personDetailViewController = 
         [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
 
-	//NSUInteger row = [indexPath row];
-    //Person *person = [[Person alloc] initForUserName:(NSString *)[people objectAtIndex:row]];
+	// NSUInteger row = [indexPath row];
+    // Person *person = [[Person alloc] initForUserName:(NSString *)[people objectAtIndex:row]];
     
+    // TODO: understand how to reference PresenceAppDelegate navController property
+    // http://stackoverflow.com/questions/855456/compiler-warning-not-found-in-protocols-when-using-uiapplication-sharedapp
+    // http://stackoverflow.com/questions/1000560/why-does-uiapplication-sharedapplication-delegate-return-a-nil-object    
+    // myNavController = (UINavigationController *)[[[UIApplication sharedApplication] delegate] navController];
+    // [myNavController pushViewController:personDetailViewController animated:YES];
+
     [navController pushViewController:personDetailViewController animated:YES];
     
     // TODO: don't need to release, navigation controller will pop it?
