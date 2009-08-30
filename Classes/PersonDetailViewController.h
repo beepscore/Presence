@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Person.h"
 
-
 @interface PersonDetailViewController : UITableViewController {
     Person *person;
 }

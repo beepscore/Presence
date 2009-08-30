@@ -54,7 +54,6 @@
 }
 
 
-
 - (void)dealloc {
     [twitterUserName release];
     [displayName release];

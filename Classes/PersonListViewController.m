@@ -142,13 +142,14 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    // TODO: fix these
+    
     PersonDetailViewController *personDetailViewController = 
         [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
 
-	// NSUInteger row = [indexPath row];
-    // Person *person = [[Person alloc] initForUserName:(NSString *)[people objectAtIndex:row]];
+	// set detail view person based on selected row
+    NSUInteger row = [indexPath row];
+    personDetailViewController.person = 
+        [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
     
     // TODO: understand how to reference PresenceAppDelegate navController property
     // http://stackoverflow.com/questions/855456/compiler-warning-not-found-in-protocols-when-using-uiapplication-sharedapp
@@ -158,7 +159,7 @@
 
     [navController pushViewController:personDetailViewController animated:YES];
     
-    // TODO: don't need to release, navigation controller will pop it?
+    // TODO: Don't need to release, navigation controller will pop it?
     //[personDetailViewController release];
 }
 

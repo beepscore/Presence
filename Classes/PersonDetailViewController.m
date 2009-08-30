@@ -11,6 +11,7 @@
 
 @implementation PersonDetailViewController
 @synthesize person;
+
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -20,15 +21,10 @@
 }
 */
 
-
 - (void)viewDidLoad {
     // Ref Mark pg 269
-    self.title = @"Personal Details";
-    //Person *tempPerson = [[Person alloc] init];
-    Person *tempPerson = [[Person alloc] initForUserName:@"THE_REAL_SHAQ"];
-    //Person *tempPerson = [[Person alloc] initForUserName:@"WilliamShatner"];
-    self.person = tempPerson;
-    [tempPerson release];
+    //self.title = @"Personal Details";
+    self.title = person.displayName;
     
     [super viewDidLoad];
 
@@ -36,22 +32,24 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
 /*
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated { 
     [super viewWillAppear:animated];
 }
 */
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 */
+
 /*
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 }
 */
+
 /*
 - (void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
@@ -108,21 +106,21 @@
     
     // Set up the cell.  Ref Mark pg 258    
     cell.textLabel.text = @"I feel good.";
-    //cell.textLabel.text = person.displayName;
-    //cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:0];
+    //cell.textLabel.text = person.twitterUserName;
+    // cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:0];
     //cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:1];
             
     return cell;
 }
 
-
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
