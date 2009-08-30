@@ -77,9 +77,12 @@
     [super viewDidUnload];
 }
 
+- (void)dealloc {
+    [person release];
+    [super dealloc];
+}
 
 #pragma mark Table view methods
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -103,12 +106,20 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
+    // Add subview.  Ref Mark pg 213
+    CGRect tweetRect = CGRectMake(20, 10, 200, 100);
+    UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
+    tweetLabel.text = @"Woo! That was a big hamburger to eat all at once after drinking so much root beer!";
+    
     // Set up the cell.  Ref Mark pg 258    
-    cell.textLabel.text = @"I feel good.";
-    //cell.textLabel.text = person.twitterUserName;
+    // cell.textLabel.text = @"I feel good.";
+    // cell.textLabel.text = person.twitterUserName;
     // cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:0];
-    //cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:1];
-            
+    // cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:1];
+    
+    [cell.contentView addSubview:tweetLabel];
+    [tweetLabel release];
+    
     return cell;
 }
 
@@ -144,13 +155,11 @@
 }
 */
 
-
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
 }
 */
-
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -160,12 +169,12 @@
 }
 */
 
-
-- (void)dealloc {
-    [person release];
-    [super dealloc];
+// Calculate row height.  Ref Mark pg 209
+// TODO:  Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment.
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
 }
-
 
 @end
 
