@@ -50,7 +50,7 @@
 // Get statusUpdates, store in person.
 // http://groups.google.com/group/iphone-appdev-auditors/browse_thread/thread/d1cf4e28c864979f
 -(NSArray *)statusUpdates {
-    // TODO:  Check array element type.  NSCFDictionary, not NSString???
+    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"
     statusUpdates = [TwitterHelper fetchTimelineForUsername:self.twitterUserName];
     return statusUpdates;
 }

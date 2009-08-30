@@ -91,31 +91,30 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // TODO: Check count?
-    //return [person.statusUpdates count];
-    return 2;
+    return [person.statusUpdates count];
+    //return 2;
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSUInteger row = [indexPath row];
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+
+    // Set up the cell.  Ref Mark pg 258
+    // cell.textLabel.text = @"I feel good.";
     
     // Add subview.  Ref Mark pg 213
     CGRect tweetRect = CGRectMake(20, 10, 200, 100);
     UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
-    tweetLabel.text = @"Woo! That was a big hamburger to eat all at once after drinking so much root beer!";
     
-    // Set up the cell.  Ref Mark pg 258    
-    // cell.textLabel.text = @"I feel good.";
-    // cell.textLabel.text = person.twitterUserName;
-    // cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:0];
-    // cell.textLabel.text = (NSString *)[person.statusUpdates objectAtIndex:1];
+    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
+    tweetLabel.text = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
     
     [cell.contentView addSubview:tweetLabel];
     [tweetLabel release];
