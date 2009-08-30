@@ -8,7 +8,6 @@
 
 #import "PersonDetailViewController.h"
 
-
 @implementation PersonDetailViewController
 @synthesize person;
 
@@ -90,9 +89,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // TODO: Check count?
     return [person.statusUpdates count];
-    //return 2;
 }
 
 
@@ -110,13 +107,18 @@
     // cell.textLabel.text = @"I feel good.";
     
     // Add subview.  Ref Mark pg 213
-    CGRect tweetRect = CGRectMake(20, 10, 200, 100);
-    UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
-    
     // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
-    tweetLabel.text = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+
+    //NSInteger tweetHeight = [self tableView:tableView heightForRowAtIndexPath:indexPath];    
+    //CGRect tweetRect = CGRectMake(20, 10, 200, tweetHeight);
     
+    CGRect tweetRect = CGRectMake(20, 10, 280, 300);
+    UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
+    tweetLabel.text = tweetString;
     [cell.contentView addSubview:tweetLabel];
+    
+    //[tweetString release];
     [tweetLabel release];
     
     return cell;
@@ -168,11 +170,25 @@
 }
 */
 
-// Calculate row height.  Ref Mark pg 209
-// TODO:  Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment.
+// Specify row height.  Ref Mark pg 209
+// Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment.
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+
+    NSUInteger row = [indexPath row];
+    NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+
+    struct CGSize tweetSize;
+    
+    //tweetSize = [tweetString
+    //             sizeWithFont:[UIFont systemFontOfSize:14]
+    //             forWidth:280
+    //             lineBreakMode:UILineBreakModeWordWrap];
+    
+    // TODO: override previous calc. Not working because statusUpdates not ready?
+    tweetSize.height = 240;
+    
+    return tweetSize.height;    
 }
 
 @end
