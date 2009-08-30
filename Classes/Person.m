@@ -47,10 +47,12 @@
     return self;
 }
 
-// Get statusUpdates, but don't store in person.
+// Get statusUpdates, store in person.
+// http://groups.google.com/group/iphone-appdev-auditors/browse_thread/thread/d1cf4e28c864979f
 -(NSArray *)statusUpdates {
-        // TODO:  Check array element type.  NSCFDictionary, not NSString???
-        return [TwitterHelper fetchTimelineForUsername:self.twitterUserName];        
+    // TODO:  Check array element type.  NSCFDictionary, not NSString???
+    statusUpdates = [TwitterHelper fetchTimelineForUsername:self.twitterUserName];
+    return statusUpdates;
 }
 
 
