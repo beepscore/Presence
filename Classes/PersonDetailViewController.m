@@ -94,7 +94,8 @@
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     static NSString *CellIdentifier = @"Cell";
     
@@ -106,32 +107,34 @@
     // Set up the cell.  Ref Mark pg 258
     // cell.textLabel.text = @"I feel good.";
     
-    // Add subview.  Ref Mark pg 213
+    // Add subview.  Ref Mark pg 213.  Stanford lecture 8 video 33:00.
     // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
     NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
-
-    //NSInteger tweetHeight = [self tableView:tableView heightForRowAtIndexPath:indexPath];    
-    //CGRect tweetRect = CGRectMake(20, 10, 200, tweetHeight);
     
-    CGRect tweetRect = CGRectMake(20, 10, 280, 300);
+    CGRect tweetRect = cell.contentView.bounds;
+    tweetRect.size.width = 280;
     UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
+    tweetLabel.numberOfLines = 50;
+    tweetLabel.lineBreakMode = UILineBreakModeWordWrap;
+    tweetLabel.font = [UIFont systemFontOfSize:14];
     tweetLabel.text = tweetString;
     [cell.contentView addSubview:tweetLabel];
     
-    //[tweetString release];
     [tweetLabel release];
-    
+    // TODO: lecture doesn't show return.  can it be implicit?
     return cell;
 }
 
-/*
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
+    // ref Stanford lecture 8 video 27:21
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -171,24 +174,21 @@
 */
 
 // Specify row height.  Ref Mark pg 209
-// Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment.
+// Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment, lecture 8 video 33:55.
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSUInteger row = [indexPath row];
     NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
-
-    struct CGSize tweetSize;
+    UIFont *font = [UIFont systemFontOfSize:14];
+    CGSize withinSize = CGSizeMake(280, 1000);
     
-    //tweetSize = [tweetString
-    //             sizeWithFont:[UIFont systemFontOfSize:14]
-    //             forWidth:280
-    //             lineBreakMode:UILineBreakModeWordWrap];
-    
-    // TODO: override previous calc. Not working because statusUpdates not ready?
-    tweetSize.height = 240;
-    
-    return tweetSize.height;    
+    CGSize tweetSize = [tweetString
+                        sizeWithFont:font
+                        constrainedToSize:withinSize
+                        lineBreakMode:UILineBreakModeWordWrap];
+        
+    return tweetSize.height + kRowVerticalPadding;    
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
+#define kRowVerticalPadding 20
 
 @interface PersonDetailViewController : UITableViewController {
     Person *person;

@@ -47,11 +47,13 @@
     return self;
 }
 
-// Get statusUpdates, store in person.
+// Get statusUpdates, store in person.  Note method and property can have the same name.
 // http://groups.google.com/group/iphone-appdev-auditors/browse_thread/thread/d1cf4e28c864979f
--(NSArray *)statusUpdates {
+- (NSArray *)statusUpdates {
     // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"
-    statusUpdates = [TwitterHelper fetchTimelineForUsername:self.twitterUserName];
+    if (nil == statusUpdates) {
+        statusUpdates = [TwitterHelper fetchTimelineForUsername:self.twitterUserName];
+    }    
     return statusUpdates;
 }
 
