@@ -73,20 +73,7 @@
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize: 14];
-    
-    // Add subview.  Ref Mark pg 213.  Stanford lecture 8 video 33:00.
-    //NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
-    
-    //CGRect tweetRect = cell.contentView.bounds;
-    //tweetRect.size.width = tableView.bounds.size.width - 40;
-    //UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
-    //tweetLabel.numberOfLines = 0;
-    //tweetLabel.lineBreakMode = UILineBreakModeWordWrap;
-    //tweetLabel.font = [UIFont systemFontOfSize:14];
-    //tweetLabel.text = tweetString;
-    //[cell.contentView addSubview:tweetLabel];    
-    //[tweetLabel release];
-    
+
     return cell;
 }
 
@@ -116,11 +103,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
                         constrainedToSize:withinSize
                         lineBreakMode:UILineBreakModeWordWrap];
         
-    return tweetSize.height + kRowVerticalPadding;    
-
-    // replacing calculation with this line didn't fix crash
-    // return 50;
- 
+    return tweetSize.height + kRowVerticalPadding;
  }
 
 @end
