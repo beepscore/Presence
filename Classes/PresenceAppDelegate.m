@@ -7,6 +7,7 @@
 //
 
 #import "PresenceAppDelegate.h"
+#import "PersonListViewController.h"
 
 @implementation PresenceAppDelegate
 
@@ -19,6 +20,13 @@
     // Override point for customization after application launch
     // Add navigation controller view to the window.  Ref Mark pg 255
     [window addSubview: navController.view];
+
+    // Push person list onto the root of the navigation controller stack.
+    PersonListViewController *personListViewController = 
+    [[PersonListViewController alloc] initWithNibName:@"PersonListView" 
+                                               bundle:[NSBundle mainBundle]];
+    [navController pushViewController:personListViewController animated:YES];
+
     [window makeKeyAndVisible];
 }
 
@@ -28,6 +36,5 @@
     [navController release];
     [super dealloc];
 }
-
 
 @end

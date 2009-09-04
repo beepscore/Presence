@@ -24,6 +24,8 @@
 
         // Use convenience factory method, rely on autorelease.  Don't explicitly release.
         // http://apiwiki.twitter.com/Twitter-REST-API-Method:-users%C2%A0show
+        
+        // Note: without an internet connection, the app will crash
         NSDictionary *userDictionary = [TwitterHelper fetchInfoForUsername:userName];
         // Display the best available name
         if (nil != [userDictionary objectForKey:@"name"]) {

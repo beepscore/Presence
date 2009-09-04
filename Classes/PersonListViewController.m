@@ -10,7 +10,6 @@
 
 @implementation PersonListViewController
 @synthesize people;
-@synthesize navController;
 
 
 // Ref Mark pg 258, 266
@@ -19,7 +18,7 @@
     self.title = @"People";
     
     // Ref Mark pg 223, 327
-    // Note TwitterUsers.plist root is an array, not a dictionary
+    // Note TwitterUsers.plist is an array, not a dictionary
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];
     
     // Use temp variable and explicit release.
@@ -46,14 +45,12 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    self.people = nil;
+    //self.people = nil;
     [super viewDidUnload];
 }
 
 - (void)dealloc {
     [people release];
-    //[navController release];
-
     [super dealloc];
 }
 
@@ -114,16 +111,14 @@
     personDetailViewController.person = 
         [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
     
-    // TODO: understand how to reference PresenceAppDelegate navController property
-    // http://stackoverflow.com/questions/855456/compiler-warning-not-found-in-protocols-when-using-uiapplication-sharedapp
-    // http://stackoverflow.com/questions/1000560/why-does-uiapplication-sharedapplication-delegate-return-a-nil-object    
-    // myNavController = (UINavigationController *)[[[UIApplication sharedApplication] delegate] navController];
-    // [myNavController pushViewController:personDetailViewController animated:YES];
-
-    [navController pushViewController:personDetailViewController animated:YES];
-    
-    // TODO: Don't need to release, navigation controller will pop it?
-    //[personDetailViewController release];
+    // Push detail view controller
+    if ( [self.parentViewController respondsToSelector:@selector(pushViewController: animated:)] ) {
+        [(UINavigationController *)self.parentViewController pushViewController:personDetailViewController animated:YES];        
+    } else {
+        NSLog(@"parentViewController doesn't respond to pushViewController: animated:");
+    }
+    // TODO: Release to balance alloc.  Navigation controller will pop to balance push.
+    [personDetailViewController release];
 }
 
 @end

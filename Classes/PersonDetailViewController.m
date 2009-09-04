@@ -13,7 +13,6 @@
 
 - (void)viewDidLoad {
     // Ref Mark pg 269
-    //self.title = @"Personal Details";
     self.title = person.displayName;    
     [super viewDidLoad];
 
@@ -24,15 +23,14 @@
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
+    [super didReceiveMemoryWarning];	
 	// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    self.person = nil;
+    //self.person = nil;
     [super viewDidUnload];
 }
 
@@ -80,9 +78,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
     // ref Stanford lecture 8 video 27:21
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
