@@ -11,15 +11,6 @@
 @implementation PersonDetailViewController
 @synthesize person;
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
-
 - (void)viewDidLoad {
     // Ref Mark pg 269
     //self.title = @"Personal Details";
@@ -30,37 +21,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-/*
-- (void)viewWillAppear:(BOOL)animated { 
-    [super viewWillAppear:animated];
-}
-*/
-
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -96,32 +56,37 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
-    static NSString *CellIdentifier = @"Cell";
+    
+    static NSString *CellIdentifier = @"CellIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    // TODO:  App crashes when top cell is manually scrolled off screen.
+    if (nil == cell) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                       reuseIdentifier:CellIdentifier] autorelease];
     }
 
     // Set up the cell.  Ref Mark pg 258
-    // cell.textLabel.text = @"I feel good.";
+    NSUInteger row = [indexPath row];
+    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
+    cell.textLabel.text = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize: 14];
     
     // Add subview.  Ref Mark pg 213.  Stanford lecture 8 video 33:00.
-    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
-    NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    //NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
     
-    CGRect tweetRect = cell.contentView.bounds;
-    tweetRect.size.width = 280;
-    UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
-    tweetLabel.numberOfLines = 50;
-    tweetLabel.lineBreakMode = UILineBreakModeWordWrap;
-    tweetLabel.font = [UIFont systemFontOfSize:14];
-    tweetLabel.text = tweetString;
-    [cell.contentView addSubview:tweetLabel];
+    //CGRect tweetRect = cell.contentView.bounds;
+    //tweetRect.size.width = tableView.bounds.size.width - 40;
+    //UILabel *tweetLabel = [[UILabel alloc] initWithFrame:tweetRect];
+    //tweetLabel.numberOfLines = 0;
+    //tweetLabel.lineBreakMode = UILineBreakModeWordWrap;
+    //tweetLabel.font = [UIFont systemFontOfSize:14];
+    //tweetLabel.text = tweetString;
+    //[cell.contentView addSubview:tweetLabel];    
+    //[tweetLabel release];
     
-    [tweetLabel release];
-    // TODO: lecture doesn't show return.  can it be implicit?
     return cell;
 }
 
@@ -135,53 +100,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 // Specify row height.  Ref Mark pg 209
 // Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment, lecture 8 video 33:55.
+
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSUInteger row = [indexPath row];
     NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
     UIFont *font = [UIFont systemFontOfSize:14];
-    CGSize withinSize = CGSizeMake(280, 1000);
+    CGSize withinSize = CGSizeMake((tableView.bounds.size.width - 20), 400);
     
     CGSize tweetSize = [tweetString
                         sizeWithFont:font
@@ -189,7 +117,11 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
                         lineBreakMode:UILineBreakModeWordWrap];
         
     return tweetSize.height + kRowVerticalPadding;    
-}
+
+    // replacing calculation with this line didn't fix crash
+    // return 50;
+ 
+ }
 
 @end
 
