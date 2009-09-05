@@ -14,7 +14,6 @@
 @synthesize window;
 @synthesize navController;
 
-
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 
     // Override point for customization after application launch
@@ -23,11 +22,12 @@
 
     // Push person list onto the root of the navigation controller stack.
     PersonListViewController *personListViewController = 
-    [[PersonListViewController alloc] initWithNibName:@"PersonListView" 
+        [[PersonListViewController alloc] initWithNibName:@"PersonListView" 
                                                bundle:[NSBundle mainBundle]];
     [navController pushViewController:personListViewController animated:YES];
 
     [window makeKeyAndVisible];
+    [personListViewController release];
 }
 
 
