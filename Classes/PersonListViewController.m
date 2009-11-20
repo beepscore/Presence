@@ -82,7 +82,9 @@
     }
     
     // Set up the cell.  Ref Mark pg 258
-	NSUInteger row = [indexPath row];    
+	NSUInteger row = [indexPath row];
+    
+    // TODO: where to release this?  Using autorelease or releasing in this method breaks app.
     Person *person = [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
     
     cell.textLabel.text = person.displayName;
@@ -92,9 +94,6 @@
     cell.imageView.image = img;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // TODO:  person will need to be released, but can't do it here it breaks app.
-    // is this related to shallow copies.  Do we need to retain something else before release person?
-    //[person release];
     [img release];
 
     return cell;
