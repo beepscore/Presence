@@ -60,17 +60,20 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    // FIXME:  App crashes when top cell is manually scrolled off screen.
     if (nil == cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                        reuseIdentifier:CellIdentifier] autorelease];
     }
 
     // Set up the cell.  Ref Mark pg 258
+    DLog(@"Set up cell row = %d", [indexPath row]);
     NSUInteger row = [indexPath row];
     
-    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
+    // FIXME:  App crashes here when top cell is manually scrolled off screen.    
+    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text" 
     cell.textLabel.text = [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    DLog(@"cell.textLabel.text = %@", cell.textLabel.text);
+    
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize: 14];
