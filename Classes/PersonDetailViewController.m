@@ -7,6 +7,7 @@
 //
 
 #import "PersonDetailViewController.h"
+#import "BSGlobalValues.h"
 
 @implementation PersonDetailViewController
 @synthesize person;
@@ -47,7 +48,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int numberOfRows = [self.person.statusUpdates count];
-    NSLog(@"Number of rows = %d", numberOfRows);
+    DLog(@"Number of rows = %d", numberOfRows);
     return numberOfRows;
 }
 
