@@ -46,7 +46,9 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.person.statusUpdates count];
+    int numberOfRows = [self.person.statusUpdates count];
+    NSLog(@"Number of rows = %d", numberOfRows);
+    return numberOfRows;
 }
 
 // Customize the appearance of table view cells.
