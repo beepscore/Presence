@@ -32,8 +32,8 @@
 
 
 - (void)dealloc {
-    [window release];
-    [navController release];
+    self.window = nil;
+    self.navController = nil;
     [super dealloc];
 }
 

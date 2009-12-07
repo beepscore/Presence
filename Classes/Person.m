@@ -13,6 +13,7 @@
 @synthesize twitterUserName;
 @synthesize displayName;
 @synthesize profileImageNSURL;
+@synthesize statusUpdates;
 @synthesize timeZone;
 
 
@@ -20,7 +21,7 @@
     // allow superclass to initialize its state first
     self = [super init];    
     if (self) {
-        twitterUserName = userName;
+        self.twitterUserName = userName;
 
         // Use convenience factory method, rely on autorelease.  Don't explicitly release.
         // http://apiwiki.twitter.com/Twitter-REST-API-Method:-users%C2%A0show
@@ -29,19 +30,19 @@
         NSDictionary *userDictionary = [TwitterHelper fetchInfoForUsername:userName];
         // Display the best available name
         if (nil != [userDictionary objectForKey:@"name"]) {
-            displayName = [userDictionary objectForKey:@"name"];
+            self.displayName = [userDictionary objectForKey:@"name"];
         }
         else if (nil != [userDictionary objectForKey:@"screen_name"]) {
-            displayName = [userDictionary objectForKey:@"screen_name"];
+            self.displayName = [userDictionary objectForKey:@"screen_name"];
         }
         else {
-            displayName = userName;
+            self.displayName = userName;
         }
-        timeZone = [userDictionary objectForKey:@"time_zone"];
+        self.timeZone = [userDictionary objectForKey:@"time_zone"];
         
         // Ref Hillegass pg 350
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];
-        profileImageNSURL = [NSURL URLWithString:profileImageURL];
+        self.profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
         statusUpdates = nil;
 
@@ -49,7 +50,7 @@
     return self;
 }
 
-// Get statusUpdates, store in person.  Note method and property can have the same name.
+// statusUpdates getter accessor.  Has the same name as its instance variable.
 // http://groups.google.com/group/iphone-appdev-auditors/browse_thread/thread/d1cf4e28c864979f
 - (NSArray *)statusUpdates {
     // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"
@@ -61,11 +62,12 @@
 
 
 - (void)dealloc {
-    [twitterUserName release];
-    [displayName release];
-    [profileImageNSURL release];
-    [statusUpdates release];
-    [timeZone release];
+    self.twitterUserName = nil;
+    self.displayName = nil;
+    self.profileImageNSURL = nil;
+    // TODO:  statusUpdates is readonly.  Don't retain it?
+    // statusUpdates = release;
+    self.timeZone = nil;
     [super dealloc];
 }
 @end

@@ -20,8 +20,9 @@
 @property (nonatomic, retain) NSString *twitterUserName;
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSURL *profileImageNSURL;
-@property (nonatomic, retain, readonly) NSArray *statusUpdates;
+@property (nonatomic, readonly, assign) NSArray *statusUpdates;
 @property (nonatomic, retain) NSString *timeZone;
 
+// designated initializer
 - (id)initForUserName:(NSString *)userName;
 @end

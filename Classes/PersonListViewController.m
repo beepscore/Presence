@@ -50,7 +50,7 @@
 }
 
 - (void)dealloc {
-    [people release];
+    self.people = nil;
     [super dealloc];
 }
 
@@ -62,23 +62,24 @@
 }
 
 
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section {
     // Ref Mark pg 258
     return [people count];
 }
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *PersonCellIdentifier = @"PersonCellIdentifier";
+    static NSString *CellIdentifier = @"PersonCellIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PersonCellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (nil == cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:PersonCellIdentifier] autorelease];
+                                       reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Set up the cell.  Ref Mark pg 258
