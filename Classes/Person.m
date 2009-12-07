@@ -17,8 +17,14 @@
 @synthesize timeZone;
 
 
+- (id)init {
+  // call designated initializer
+ return [self initForUserName:@"sparkfun"];
+}
+
+// designated initializer
 - (id)initForUserName:(NSString *)userName {
-    // allow superclass to initialize its state first
+    // call superclass' designated initializer
     self = [super init];    
     if (self) {
         self.twitterUserName = userName;
@@ -31,13 +37,13 @@
         // Display the best available name
         if (nil != [userDictionary objectForKey:@"name"]) {
             self.displayName = [userDictionary objectForKey:@"name"];
-        }
-        else if (nil != [userDictionary objectForKey:@"screen_name"]) {
+        } else 
+            if (nil != [userDictionary objectForKey:@"screen_name"]) {
             self.displayName = [userDictionary objectForKey:@"screen_name"];
-        }
-        else {
+        } else {
             self.displayName = userName;
         }
+        
         self.timeZone = [userDictionary objectForKey:@"time_zone"];
         
         // Ref Hillegass pg 350
@@ -45,7 +51,6 @@
         self.profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
         statusUpdates = nil;
-
     }
     return self;
 }

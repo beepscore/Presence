@@ -20,14 +20,17 @@
     // Add navigation controller view to the window.  Ref Mark pg 255
     [window addSubview: navController.view];
 
-    // Push person list onto the root of the navigation controller stack.
     PersonListViewController *personListViewController = 
         [[PersonListViewController alloc] initWithNibName:@"PersonListView" 
                                                bundle:[NSBundle mainBundle]];
+    
+    // Push person list onto the root of the navigation controller stack.
+    // navController will retain pushed view controller
     [navController pushViewController:personListViewController animated:YES];
 
-    [window makeKeyAndVisible];
     [personListViewController release];
+
+    [window makeKeyAndVisible];
 }
 
 
