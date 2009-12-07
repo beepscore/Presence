@@ -85,8 +85,8 @@
     // Set up the cell.  Ref Mark pg 258
 	NSUInteger row = [indexPath row];
     
-    // TODO: where to release this?  Using autorelease or releasing in this method breaks app.
     Person *person = [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
+    [person autorelease];
     
     cell.textLabel.text = person.displayName;
 
@@ -101,7 +101,8 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PersonDetailViewController *personDetailViewController = 
         [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
