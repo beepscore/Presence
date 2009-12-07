@@ -13,7 +13,7 @@
 
 - (void)viewDidLoad {
     // Ref Mark pg 269
-    self.title = person.displayName;    
+    self.title = self.person.displayName;    
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -35,7 +35,7 @@
 }
 
 - (void)dealloc {
-    [person release];
+    self.person = nil;
     [super dealloc];
 }
 
@@ -44,21 +44,20 @@
     return 1;
 }
 
-
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [person.statusUpdates count];
+    return [self.person.statusUpdates count];
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"CellIdentifier";
+    // ????: Does this identifier need to be different from the one in PersonListViewController?
+    static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    // TODO:  App crashes when top cell is manually scrolled off screen.
+    // FIXME:  App crashes when top cell is manually scrolled off screen.
     if (nil == cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                        reuseIdentifier:CellIdentifier] autorelease];
@@ -66,8 +65,9 @@
 
     // Set up the cell.  Ref Mark pg 258
     NSUInteger row = [indexPath row];
+    
     // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
-    cell.textLabel.text = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    cell.textLabel.text = [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize: 14];
@@ -89,7 +89,7 @@
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSUInteger row = [indexPath row];
-    NSString *tweetString = [[person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    NSString *tweetString = [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
     UIFont *font = [UIFont systemFontOfSize:14];
     CGSize withinSize = CGSizeMake((tableView.bounds.size.width - 20), 400);
     
