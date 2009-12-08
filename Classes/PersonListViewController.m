@@ -7,10 +7,11 @@
 //
 
 #import "PersonListViewController.h"
+#import "PersonDetailViewController.h"
 
 @implementation PersonListViewController
 @synthesize people;
-
+@synthesize personDetailViewController;
 
 // Ref Mark pg 258, 266
 - (void)viewDidLoad {
@@ -34,7 +35,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -51,6 +51,7 @@
 
 - (void)dealloc {
     self.people = nil;
+    self.personDetailViewController = nil;
     [super dealloc];
 }
 
@@ -61,13 +62,11 @@
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section {
     // Ref Mark pg 258
     return [people count];
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView 
@@ -100,17 +99,15 @@
     return cell;
 }
 
-
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PersonDetailViewController *personDetailViewController = 
-        [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailView" bundle:nil];
+//    personDetailViewController = 
+//        [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailViewController" bundle:nil];
 
 	// set detail view person based on selected row
     NSUInteger row = [indexPath row];
-    personDetailViewController.person = 
-        [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
+    self.personDetailViewController.userNameKey = (NSString *)[self.people objectAtIndex:row];
     
     // Push detail view controller
     if ( [self.parentViewController respondsToSelector:@selector(pushViewController: animated:)] ) {
@@ -119,7 +116,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         NSLog(@"parentViewController doesn't respond to pushViewController: animated:");
     }
     // TODO: Release to balance alloc.  Navigation controller will pop to balance push.
-    [personDetailViewController release];
+//    [personDetailViewController release];
 }
 
 @end

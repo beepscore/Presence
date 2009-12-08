@@ -21,7 +21,7 @@
     [window addSubview: navController.view];
 
     PersonListViewController *personListViewController = 
-        [[PersonListViewController alloc] initWithNibName:@"PersonListView" 
+        [[PersonListViewController alloc] initWithNibName:@"PersonListViewController" 
                                                bundle:[NSBundle mainBundle]];
     
     // Push person list onto the root of the navigation controller stack.

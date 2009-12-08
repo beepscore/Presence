@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
-#import "PersonDetailViewController.h"
+
+@class PersonDetailViewController;
 
 @interface PersonListViewController : UITableViewController {
     // people array holds a list of peoples names.  Ref Mark pg 223, 257
-    NSArray *people;
+    NSArray *people;    
+    PersonDetailViewController *personDetailViewController;
 }
 @property (nonatomic, retain) NSArray *people;
+@property (nonatomic, retain) IBOutlet PersonDetailViewController *personDetailViewController;
 
 @end

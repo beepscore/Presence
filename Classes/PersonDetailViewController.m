@@ -10,9 +10,12 @@
 #import "BSGlobalValues.h"
 
 @implementation PersonDetailViewController
+@synthesize userNameKey;
 @synthesize person;
 
 - (void)viewDidLoad {
+    self.person = [[Person alloc] initForUserName:self.userNameKey];
+
     // Ref Mark pg 269
     self.title = self.person.displayName;    
     [super viewDidLoad];
@@ -30,12 +33,13 @@
 
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-    //self.person = nil;
+	self.userNameKey = nil;
+    self.person = nil;
     [super viewDidUnload];
 }
 
 - (void)dealloc {
+    self.userNameKey = nil;
     self.person = nil;
     [super dealloc];
 }

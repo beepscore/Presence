@@ -15,14 +15,14 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0361C31043A2E000FD0218 /* PersonListViewController.m */; };
 		DE0C60D91043B2F100FB5062 /* PersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */; };
-		DE0C60DD1043B61E00FB5062 /* PersonDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */; };
+		DE0C60DD1043B61E00FB5062 /* PersonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0C60DC1043B61E00FB5062 /* PersonDetailViewController.xib */; };
 		DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE4BCDE1104373870009C6DE /* TwitterUsers.plist */; };
 		DE4BCDE51043739D0009C6DE /* TwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE41043739D0009C6DE /* TwitterHelper.m */; };
 		DE4BCDEE104373CF0009C6DE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE9104373CF0009C6DE /* NSObject+SBJSON.m */; };
 		DE4BCDEF104373CF0009C6DE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDEB104373CF0009C6DE /* NSString+SBJSON.m */; };
 		DE4BCDF0104373CF0009C6DE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDED104373CF0009C6DE /* SBJSON.m */; };
 		DE8292A410CDBDDA0078818D /* BSGlobalValues.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8292A310CDBDDA0078818D /* BSGlobalValues.m */; };
-		DE9C4F1B104450D700714304 /* PersonListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9C4F1A104450D700714304 /* PersonListView.xib */; };
+		DE9C4F1B104450D700714304 /* PersonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9C4F1A104450D700714304 /* PersonListViewController.xib */; };
 		DEADA460104386130089FE7D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADA45F104386130089FE7D /* Person.m */; };
 		DEAF899510438C0800521C55 /* beepscoreIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAF899410438C0800521C55 /* beepscoreIcon57.png */; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 		DE0361C31043A2E000FD0218 /* PersonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonListViewController.m; sourceTree = "<group>"; };
 		DE0C60D71043B2F100FB5062 /* PersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailViewController.h; sourceTree = "<group>"; };
 		DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailViewController.m; sourceTree = "<group>"; };
-		DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailView.xib; sourceTree = "<group>"; };
+		DE0C60DC1043B61E00FB5062 /* PersonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailViewController.xib; sourceTree = "<group>"; };
 		DE4BCDE1104373870009C6DE /* TwitterUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterUsers.plist; sourceTree = "<group>"; };
 		DE4BCDE31043739D0009C6DE /* TwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHelper.h; sourceTree = "<group>"; };
 		DE4BCDE41043739D0009C6DE /* TwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHelper.m; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		DE4BCDED104373CF0009C6DE /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
 		DE8292A210CDBDDA0078818D /* BSGlobalValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGlobalValues.h; sourceTree = "<group>"; };
 		DE8292A310CDBDDA0078818D /* BSGlobalValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGlobalValues.m; sourceTree = "<group>"; };
-		DE9C4F1A104450D700714304 /* PersonListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonListView.xib; sourceTree = "<group>"; };
+		DE9C4F1A104450D700714304 /* PersonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonListViewController.xib; sourceTree = "<group>"; };
 		DEADA45E104386130089FE7D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		DEADA45F104386130089FE7D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		DEAF899410438C0800521C55 /* beepscoreIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beepscoreIcon57.png; sourceTree = "<group>"; };
@@ -81,16 +81,16 @@
 				DE8292A210CDBDDA0078818D /* BSGlobalValues.h */,
 				DE8292A310CDBDDA0078818D /* BSGlobalValues.m */,
 				DE4BCDE6104373CF0009C6DE /* JSON */,
-				DE4BCDE31043739D0009C6DE /* TwitterHelper.h */,
-				DE4BCDE41043739D0009C6DE /* TwitterHelper.m */,
-				1D3623240D0F684500981E51 /* PresenceAppDelegate.h */,
-				1D3623250D0F684500981E51 /* PresenceAppDelegate.m */,
 				DEADA45E104386130089FE7D /* Person.h */,
 				DEADA45F104386130089FE7D /* Person.m */,
-				DE0361C21043A2E000FD0218 /* PersonListViewController.h */,
-				DE0361C31043A2E000FD0218 /* PersonListViewController.m */,
 				DE0C60D71043B2F100FB5062 /* PersonDetailViewController.h */,
 				DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */,
+				DE0361C21043A2E000FD0218 /* PersonListViewController.h */,
+				DE0361C31043A2E000FD0218 /* PersonListViewController.m */,
+				1D3623240D0F684500981E51 /* PresenceAppDelegate.h */,
+				1D3623250D0F684500981E51 /* PresenceAppDelegate.m */,
+				DE4BCDE31043739D0009C6DE /* TwitterHelper.h */,
+				DE4BCDE41043739D0009C6DE /* TwitterHelper.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -128,11 +128,11 @@
 			isa = PBXGroup;
 			children = (
 				DEAF899410438C0800521C55 /* beepscoreIcon57.png */,
-				DE4BCDE1104373870009C6DE /* TwitterUsers.plist */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				DE0C60DC1043B61E00FB5062 /* PersonDetailViewController.xib */,
+				DE9C4F1A104450D700714304 /* PersonListViewController.xib */,
 				8D1107310486CEB800E47090 /* Presence-Info.plist */,
-				DE0C60DC1043B61E00FB5062 /* PersonDetailView.xib */,
-				DE9C4F1A104450D700714304 /* PersonListView.xib */,
+				DE4BCDE1104373870009C6DE /* TwitterUsers.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -206,8 +206,8 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */,
 				DEAF899510438C0800521C55 /* beepscoreIcon57.png in Resources */,
-				DE0C60DD1043B61E00FB5062 /* PersonDetailView.xib in Resources */,
-				DE9C4F1B104450D700714304 /* PersonListView.xib in Resources */,
+				DE0C60DD1043B61E00FB5062 /* PersonDetailViewController.xib in Resources */,
+				DE9C4F1B104450D700714304 /* PersonListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
