@@ -50,7 +50,7 @@
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];
         self.profileImageNSURL = [NSURL URLWithString:profileImageURL];
         
-        statusUpdates = nil;
+        //statusUpdates = nil;
     }
     return self;
 }
@@ -71,7 +71,8 @@
     self.displayName = nil;
     self.profileImageNSURL = nil;
     // TODO:  statusUpdates is readonly.  Don't retain it?
-    // statusUpdates = release;
+    [statusUpdates release];
+    statusUpdates = nil;
     self.timeZone = nil;
     [super dealloc];
 }

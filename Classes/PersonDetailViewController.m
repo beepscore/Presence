@@ -13,16 +13,25 @@
 @synthesize userNameKey;
 @synthesize person;
 
+- (void)dealloc {
+    self.userNameKey = nil;
+    self.person = nil;
+    [super dealloc];
+}
+
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.person = [[Person alloc] initForUserName:self.userNameKey];
 
     // Ref Mark pg 269
     self.title = self.person.displayName;    
-    [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+//  Ref Dudney sec 6.5
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    [self.tableView reloadData];
+//}
 
 
 - (void)didReceiveMemoryWarning {
@@ -33,16 +42,9 @@
 
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
-	self.userNameKey = nil;
-    self.person = nil;
     [super viewDidUnload];
 }
 
-- (void)dealloc {
-    self.userNameKey = nil;
-    self.person = nil;
-    [super dealloc];
-}
 
 #pragma mark Table view methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -50,7 +52,8 @@
 }
 
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section {
     int numberOfRows = [self.person.statusUpdates count];
     DLog(@"Number of rows = %d", numberOfRows);
     return numberOfRows;
@@ -76,6 +79,8 @@
     // FIXME:  App crashes here when top cell is manually scrolled off screen.    
     // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text" 
     cell.textLabel.text = [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
+    // cell.textLabel.text = [NSString stringWithFormat:@"row %d", row];
+
     DLog(@"cell.textLabel.text = %@", cell.textLabel.text);
     
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
@@ -110,6 +115,5 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         
     return tweetSize.height + kRowVerticalPadding;
  }
-
 @end
 

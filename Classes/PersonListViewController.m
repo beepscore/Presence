@@ -13,6 +13,12 @@
 @synthesize people;
 @synthesize personDetailViewController;
 
+- (void)dealloc {
+    self.people = nil;
+    self.personDetailViewController = nil;
+    [super dealloc];
+}
+
 // Ref Mark pg 258, 266
 - (void)viewDidLoad {
     // title displays in navigation controller bar.
@@ -44,15 +50,7 @@
 
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-    //self.people = nil;
     [super viewDidUnload];
-}
-
-- (void)dealloc {
-    self.people = nil;
-    self.personDetailViewController = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -102,21 +100,22 @@
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    personDetailViewController = 
-//        [[PersonDetailViewController alloc] initWithNibName:@"PersonDetailViewController" bundle:nil];
+    // alloc increments retain count.  Autorelease to balance alloc.
+    self.personDetailViewController = 
+    [[[PersonDetailViewController alloc] initWithNibName:@"PersonDetailViewController" bundle:nil]
+     autorelease];
 
 	// set detail view person based on selected row
     NSUInteger row = [indexPath row];
     self.personDetailViewController.userNameKey = (NSString *)[self.people objectAtIndex:row];
     
-    // Push detail view controller
+    // Push detail view controller increments retain count. Nav controller will pop and release for us.
     if ( [self.parentViewController respondsToSelector:@selector(pushViewController: animated:)] ) {
-        [(UINavigationController *)self.parentViewController pushViewController:personDetailViewController animated:YES];        
+        [(UINavigationController *)self.parentViewController
+         pushViewController:personDetailViewController animated:YES];        
     } else {
         NSLog(@"parentViewController doesn't respond to pushViewController: animated:");
     }
-    // TODO: Release to balance alloc.  Navigation controller will pop to balance push.
-//    [personDetailViewController release];
 }
 
 @end

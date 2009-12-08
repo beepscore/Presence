@@ -14,6 +14,12 @@
 @synthesize window;
 @synthesize navController;
 
+- (void)dealloc {
+    self.window = nil;
+    self.navController = nil;
+    [super dealloc];
+}
+
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 
     // Override point for customization after application launch
@@ -32,12 +38,4 @@
 
     [window makeKeyAndVisible];
 }
-
-
-- (void)dealloc {
-    self.window = nil;
-    self.navController = nil;
-    [super dealloc];
-}
-
 @end
