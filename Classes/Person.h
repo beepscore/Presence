@@ -20,9 +20,14 @@
 @property (nonatomic, retain) NSString *twitterUserName;
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSURL *profileImageNSURL;
-@property (nonatomic, readonly, retain) NSArray *statusUpdates;
+
+// statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"
+@property (nonatomic, retain) NSArray *statusUpdates;
 @property (nonatomic, retain) NSString *timeZone;
 
 // designated initializer
 - (id)initForUserName:(NSString *)userName;
+
+- (void)loadTimeline;
+
 @end

@@ -16,7 +16,16 @@
 @synthesize statusUpdates;
 @synthesize timeZone;
 
+- (void)dealloc {
+    self.twitterUserName = nil;
+    self.displayName = nil;
+    self.profileImageNSURL = nil;
+    self.statusUpdates = nil;
+    self.timeZone = nil;
+    [super dealloc];
+}
 
+#pragma mark initializers
 - (id)init {
   // call designated initializer
  return [self initForUserName:@"sparkfun"];
@@ -49,31 +58,17 @@
         // Ref Hillegass pg 350
         NSString *profileImageURL = [userDictionary objectForKey:@"profile_image_url"];
         self.profileImageNSURL = [NSURL URLWithString:profileImageURL];
-        
-        //statusUpdates = nil;
+
     }
     return self;
 }
 
-// statusUpdates getter accessor.  Has the same name as its instance variable.
-// http://groups.google.com/group/iphone-appdev-auditors/browse_thread/thread/d1cf4e28c864979f
-- (NSArray *)statusUpdates {
-    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"
-    if (nil == statusUpdates) {
-        statusUpdates = [TwitterHelper fetchTimelineForUsername:self.twitterUserName];
-    }    
-    return statusUpdates;
+#pragma mark -
+// loadTimeline calls statusUpdates property setter.  Adding this fixed crash when scrolling.
+// Call this only if user navigates from personListViewController to personDetailViewController.
+// Ref http://groups.google.com/group/iphone-appdev-auditors/browse_thread/thread/d1cf4e28c864979f
+- (void)loadTimeline {
+    self.statusUpdates = [TwitterHelper fetchTimelineForUsername:self.twitterUserName];
 }
 
-
-- (void)dealloc {
-    self.twitterUserName = nil;
-    self.displayName = nil;
-    self.profileImageNSURL = nil;
-    // TODO:  statusUpdates is readonly.  Don't retain it?
-    [statusUpdates release];
-    statusUpdates = nil;
-    self.timeZone = nil;
-    [super dealloc];
-}
 @end

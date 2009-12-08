@@ -56,7 +56,6 @@
 
 #pragma mark -
 #pragma mark Table View methods
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -120,6 +119,5 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         DLog(@"parentViewController doesn't respond to pushViewController: animated:");
     }
 }
-
 @end
 

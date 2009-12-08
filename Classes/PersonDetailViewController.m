@@ -20,15 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Ref Mark pg 269
-    self.title = self.person.displayName;    
+    self.title = self.person.displayName; 
+    [self.person loadTimeline];
 }
-
-  // Ref Dudney sec 6.5
-  // ????: This method crashes app
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    [self.tableView reloadData];
-//}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -58,7 +52,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Making this cell identifier different from the one in PersonListViewController had no effect.
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -71,26 +64,14 @@
     DLog(@"Set up cell row = %d", [indexPath row]);
     NSUInteger row = [indexPath row];
     
-    // FIXME:  App crashes here when top cell is manually scrolled off screen.    
-    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"
-    
-    cell.textLabel.text = [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"];
-    //    DLog(@"cell.textLabel.text = %@", 
-    //         [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"]);
-
-    // DLog(@"cell.textLabel.text = %@", 
-    //         [[self.person.statusUpdates objectAtIndex:7] objectForKey:@"text"]);
-
-    // this line creates cells of varying height and doesn't crash
-    // cell.textLabel.text = [NSString stringWithFormat:@"row %d", row];
-    
+    // statusUpdates array element type is dictionary.  Dictionary key for a tweet is @"text"    
+    cell.textLabel.text = [[self.person.statusUpdates objectAtIndex:row] objectForKey:@"text"];    
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize: 14];
 
     return cell;
 }
-
 
 - (void)tableView:(UITableView *)tableView 
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,7 +80,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 // Specify row height.  Ref Mark pg 209
 // Use UIStringDrawing methods to calculate height.  Ref Presence 2 Assignment, lecture 8 video 33:55.
-
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
