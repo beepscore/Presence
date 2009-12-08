@@ -109,10 +109,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	// set detail view person based on selected row
     NSUInteger row = [indexPath row];
     
-    // self.personDetailViewController.userNameKey = (NSString *)[self.people objectAtIndex:row];
     self.personDetailViewController.person = 
-        [[[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]] autorelease];
-    
+        [[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]];
+
     // Push detail view controller increments retain count. Nav controller will pop and release for us.
     if ( [self.parentViewController respondsToSelector:@selector(pushViewController: animated:)] ) {
         [(UINavigationController *)self.parentViewController
