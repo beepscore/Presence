@@ -16,6 +16,12 @@
 		DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0361C31043A2E000FD0218 /* PersonListViewController.m */; };
 		DE0C60D91043B2F100FB5062 /* PersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */; };
 		DE0C60DD1043B61E00FB5062 /* PersonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0C60DC1043B61E00FB5062 /* PersonDetailViewController.xib */; };
+		DE19F4AB10CEBDEF0003EDEB /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE19F4A010CEBDEF0003EDEB /* NSObject+SBJSON.m */; };
+		DE19F4AC10CEBDEF0003EDEB /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE19F4A210CEBDEF0003EDEB /* NSString+SBJSON.m */; };
+		DE19F4AD10CEBDEF0003EDEB /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DE19F4A410CEBDEF0003EDEB /* SBJSON.m */; };
+		DE19F4AE10CEBDEF0003EDEB /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = DE19F4A610CEBDEF0003EDEB /* SBJsonBase.m */; };
+		DE19F4AF10CEBDEF0003EDEB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DE19F4A810CEBDEF0003EDEB /* SBJsonParser.m */; };
+		DE19F4B010CEBDEF0003EDEB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = DE19F4AA10CEBDEF0003EDEB /* SBJsonWriter.m */; };
 		DE4BCDE2104373870009C6DE /* TwitterUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE4BCDE1104373870009C6DE /* TwitterUsers.plist */; };
 		DE4BCDE51043739D0009C6DE /* TwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BCDE41043739D0009C6DE /* TwitterHelper.m */; };
 		DE8292A410CDBDDA0078818D /* BSGlobalValues.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8292A310CDBDDA0078818D /* BSGlobalValues.m */; };
@@ -40,6 +46,19 @@
 		DE0C60D71043B2F100FB5062 /* PersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailViewController.h; sourceTree = "<group>"; };
 		DE0C60D81043B2F100FB5062 /* PersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailViewController.m; sourceTree = "<group>"; };
 		DE0C60DC1043B61E00FB5062 /* PersonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailViewController.xib; sourceTree = "<group>"; };
+		DE19F49E10CEBDEF0003EDEB /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		DE19F49F10CEBDEF0003EDEB /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		DE19F4A010CEBDEF0003EDEB /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		DE19F4A110CEBDEF0003EDEB /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		DE19F4A210CEBDEF0003EDEB /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		DE19F4A310CEBDEF0003EDEB /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		DE19F4A410CEBDEF0003EDEB /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		DE19F4A510CEBDEF0003EDEB /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		DE19F4A610CEBDEF0003EDEB /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		DE19F4A710CEBDEF0003EDEB /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		DE19F4A810CEBDEF0003EDEB /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		DE19F4A910CEBDEF0003EDEB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		DE19F4AA10CEBDEF0003EDEB /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		DE4BCDE1104373870009C6DE /* TwitterUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterUsers.plist; sourceTree = "<group>"; };
 		DE4BCDE31043739D0009C6DE /* TwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHelper.h; sourceTree = "<group>"; };
 		DE4BCDE41043739D0009C6DE /* TwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHelper.m; sourceTree = "<group>"; };
@@ -68,6 +87,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DE19F49D10CEBDEF0003EDEB /* JSON */,
 				DE8292A210CDBDDA0078818D /* BSGlobalValues.h */,
 				DE8292A310CDBDDA0078818D /* BSGlobalValues.m */,
 				DEADA45E104386130089FE7D /* Person.h */,
@@ -136,6 +156,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE19F49D10CEBDEF0003EDEB /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DE19F49E10CEBDEF0003EDEB /* JSON.h */,
+				DE19F49F10CEBDEF0003EDEB /* NSObject+SBJSON.h */,
+				DE19F4A010CEBDEF0003EDEB /* NSObject+SBJSON.m */,
+				DE19F4A110CEBDEF0003EDEB /* NSString+SBJSON.h */,
+				DE19F4A210CEBDEF0003EDEB /* NSString+SBJSON.m */,
+				DE19F4A310CEBDEF0003EDEB /* SBJSON.h */,
+				DE19F4A410CEBDEF0003EDEB /* SBJSON.m */,
+				DE19F4A510CEBDEF0003EDEB /* SBJsonBase.h */,
+				DE19F4A610CEBDEF0003EDEB /* SBJsonBase.m */,
+				DE19F4A710CEBDEF0003EDEB /* SBJsonParser.h */,
+				DE19F4A810CEBDEF0003EDEB /* SBJsonParser.m */,
+				DE19F4A910CEBDEF0003EDEB /* SBJsonWriter.h */,
+				DE19F4AA10CEBDEF0003EDEB /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +240,12 @@
 				DE0361C41043A2E000FD0218 /* PersonListViewController.m in Sources */,
 				DE0C60D91043B2F100FB5062 /* PersonDetailViewController.m in Sources */,
 				DE8292A410CDBDDA0078818D /* BSGlobalValues.m in Sources */,
+				DE19F4AB10CEBDEF0003EDEB /* NSObject+SBJSON.m in Sources */,
+				DE19F4AC10CEBDEF0003EDEB /* NSString+SBJSON.m in Sources */,
+				DE19F4AD10CEBDEF0003EDEB /* SBJSON.m in Sources */,
+				DE19F4AE10CEBDEF0003EDEB /* SBJsonBase.m in Sources */,
+				DE19F4AF10CEBDEF0003EDEB /* SBJsonParser.m in Sources */,
+				DE19F4B010CEBDEF0003EDEB /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
