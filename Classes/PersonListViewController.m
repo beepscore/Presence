@@ -8,6 +8,7 @@
 
 #import "PersonListViewController.h"
 #import "PersonDetailViewController.h"
+#import "BSGlobalValues.h"
 
 @implementation PersonListViewController
 @synthesize people;
@@ -63,7 +64,7 @@
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section {
     // Ref Mark pg 258
-    return [people count];
+    return [self.people count];
 }
 
 // Customize the appearance of table view cells.
@@ -107,14 +108,17 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	// set detail view person based on selected row
     NSUInteger row = [indexPath row];
-    self.personDetailViewController.userNameKey = (NSString *)[self.people objectAtIndex:row];
+    
+    // self.personDetailViewController.userNameKey = (NSString *)[self.people objectAtIndex:row];
+    self.personDetailViewController.person = 
+        [[[Person alloc] initForUserName:(NSString *)[self.people objectAtIndex:row]] autorelease];
     
     // Push detail view controller increments retain count. Nav controller will pop and release for us.
     if ( [self.parentViewController respondsToSelector:@selector(pushViewController: animated:)] ) {
         [(UINavigationController *)self.parentViewController
          pushViewController:personDetailViewController animated:YES];        
     } else {
-        NSLog(@"parentViewController doesn't respond to pushViewController: animated:");
+        DLog(@"parentViewController doesn't respond to pushViewController: animated:");
     }
 }
 

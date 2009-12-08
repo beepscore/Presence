@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
-#define kRowVerticalPadding 20
 
 @interface PersonDetailViewController : UITableViewController {
-    NSString *userNameKey;
     Person *person;
 }
-@property (nonatomic, copy) NSString *userNameKey;
 @property (nonatomic, retain) Person *person;
 
 @end

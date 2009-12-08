@@ -9,7 +9,7 @@
 // Ref http://www.cocoadev.com/index.pl?GlobalVariablesInCocoa
 
 
-// #define MAX_COUNT (100)
+#define K_ROW_VERTICAL_PADDING 20
 
 // extern NSString * const BSObservationsKey;
 
