@@ -14,6 +14,8 @@
 // Define USE_TEST_SERVER as 1 to avoid rate-limiting while developing.
 // Define it as 0 (or comment it out) to use real live data from Twitter.
 // Read more at http://apiwiki.twitter.com/Rate-limiting
+// FIXME: switching to live data breaks app on phone, not on simulator.
+// Probably will need to switch to non-blocking asynchronous data loading.
 #define USE_TEST_SERVER 1
 
 @interface TwitterHelper : NSObject {
