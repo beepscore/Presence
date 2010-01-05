@@ -13,7 +13,7 @@
 @synthesize person;
 
 - (void)dealloc {
-    self.person = nil;
+    [person release], person = nil;
     [super dealloc];
 }
 

@@ -17,11 +17,11 @@
 @synthesize timeZone;
 
 - (void)dealloc {
-    self.twitterUserName = nil;
-    self.displayName = nil;
-    self.profileImageNSURL = nil;
-    self.statusUpdates = nil;
-    self.timeZone = nil;
+    [twitterUserName release], twitterUserName = nil;
+    [displayName release], displayName = nil;
+    [profileImageNSURL release], profileImageNSURL = nil;
+    [statusUpdates release], statusUpdates = nil;
+    [timeZone release], timeZone = nil;
     [super dealloc];
 }
 

@@ -15,8 +15,8 @@
 @synthesize personDetailViewController;
 
 - (void)dealloc {
-    self.people = nil;
-    self.personDetailViewController = nil;
+    [people release], people = nil;
+    [personDetailViewController release], personDetailViewController = nil;
     [super dealloc];
 }
 
